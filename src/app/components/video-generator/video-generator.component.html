@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Generador de Videos Inspiradores</h1>
+      <p class="subtitle">Crea videos con tu texto, audio generado por IA y fondos de Pexels</p>
+    </div>
+
+    <div class="card-body">
+      <div class="form-group">
+        <label for="videoQuery">Búsqueda de video de fondo:</label>
+        <input 
+          type="text" 
+          id="videoQuery" 
+          [(ngModel)]="videoQuery" 
+          placeholder="Ejemplo: nature,inspiration,landscape"
+          [disabled]="isLoading"
+          class="form-control"
+        >
+        <small class="form-text">Palabras clave separadas por comas para buscar videos en Pexels</small>
+      </div>
+
+      <div class="form-group">
+        <label for="text">Texto para el video:</label>
+        <textarea 
+          id="text" 
+          [(ngModel)]="text" 
+          rows="5" 
+          placeholder="Escribe el texto que quieres convertir en video..."
+          [disabled]="isLoading"
+        ></textarea>
+      </div>
+
+      <div class="actions">
+        <button 
+          class="btn-generate" 
+          (click)="generate()" 
+          [disabled]="isLoading"
+        >
+          <span *ngIf="!isLoading">Generar Video</span>
+          <span *ngIf="isLoading">Generando...</span>
+        </button>
+      </div>
+
+      <div *ngIf="isLoading || statusMessage" class="status-container">
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="progress"></div>
+        </div>
+        <p class="status-message">{{ statusMessage }}</p>
+        <pre *ngIf="debugInfo" class="debug-info">{{ debugInfo }}</pre>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <div *ngIf="backgroundVideo" class="video-info">
+        <h3>Video de fondo seleccionado</h3>
+        <p>Autor: <a [href]="backgroundVideo.url" target="_blank">Ver en Pexels</a></p>
+      </div>
+
+      <div *ngIf="videoUrl" class="video-preview">
+        <h3>Vista previa del video</h3>
+        <video controls [src]="videoUrl"></video>
+        <p class="download-info">El video se ha descargado automáticamente.</p>
+      </div>
+    </div>
+  </div>
+</div>

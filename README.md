@@ -1,59 +1,55 @@
-# GeneratorVideo
+# Generador de Videos Inspiradores
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Esta aplicación permite generar videos a partir de tu texto, convirtiéndolo en audio y combinándolo con imágenes.
 
-## Development server
+## Características
 
-To start a local development server, run:
+- Conversión de texto a voz con ElevenLabs
+- Creación de videos con FFmpeg
+- Interfaz de usuario moderna y atractiva
+- Vista previa y descarga automática de videos
 
-```bash
-ng serve
-```
+## Requisitos previos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js y npm
+- Clave de API de ElevenLabs (para texto a voz)
+- ID de voz de ElevenLabs
 
-## Code scaffolding
+## Configuración
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Clona este repositorio
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Configura las claves de API:
+   - Abre `src/app/services/tts.service.ts` y reemplaza `TU_ELEVEN_KEY` con tu clave de API de ElevenLabs
+   - En `src/app/services/tts.service.ts`, reemplaza `VOICE_ID` con el ID de la voz que quieras usar
 
-```bash
-ng generate component component-name
-```
+4. Añade imágenes:
+   - Coloca tus imágenes en `src/assets/images/` con nombres como `img0.jpg`, `img1.jpg`, etc.
+   - O modifica el método `loadImages()` en `src/app/components/video-generator/video-generator.component.ts` para usar tus propias rutas de imágenes
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Uso
 
-```bash
-ng generate --help
-```
+1. Inicia el servidor de desarrollo:
+   ```bash
+   ng serve
+   ```
+2. Abre tu navegador en `http://localhost:4200`
+3. Escribe el texto que quieres convertir en video
+4. Haz clic en "Generar Video"
+5. Espera a que se complete el proceso
+6. El video se descargará automáticamente y también podrás ver una vista previa en la aplicación
 
-## Building
+## Tecnologías utilizadas
 
-To build the project run:
+- Angular 19
+- FFmpeg (para procesamiento de video)
+- ElevenLabs API (para texto a voz)
 
-```bash
-ng build
-```
+## Solución de problemas
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Si encuentras errores relacionados con FFmpeg, asegúrate de que tu navegador soporte WebAssembly y que no tengas bloqueadores de contenido activos.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para problemas con la API de ElevenLabs, verifica que tu clave de API sea válida y tenga los permisos necesarios.

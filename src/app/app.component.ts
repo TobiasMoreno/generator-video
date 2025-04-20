@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { VideoGeneratorComponent } from './components/video-generator/video-generator.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [VideoGeneratorComponent],
+  template: '<app-video-generator></app-video-generator>'
 })
-export class AppComponent {
-  title = 'generator-video';
-}
+export class AppComponent {}
