@@ -44,7 +44,6 @@ export class VideoBuilderService {
     try {
       this.progressSubject.next({ ratio: 0, message: 'Descargando video de fondo...' });
       
-      
       // 1. Descargar y preparar el video de fondo
       const videoResponse = await fetch(backgroundVideoUrl);
       const videoArrayBuffer = await videoResponse.arrayBuffer();
