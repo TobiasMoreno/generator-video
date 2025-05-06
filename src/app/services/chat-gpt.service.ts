@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ChatGptService {
   private apiKey = 'TU_OPENAI_KEY'; // Reemplaza con tu clave de API de OpenAI
+  
   private apiUrl = 'https://api.openai.com/v1/chat/completions';
 
   async generateText(prompt: string): Promise<string> {
