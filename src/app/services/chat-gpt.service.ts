@@ -12,6 +12,7 @@ export class ChatGptService {
     try {
       const response = await fetch(this.apiUrl, {
         method: 'POST',
+        
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.apiKey}`
