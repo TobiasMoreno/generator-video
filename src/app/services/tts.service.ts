@@ -42,6 +42,7 @@ export class TtsService {
       const estimatedDuration = sentence.length * 0.1;
       const timepoints = [{
         start: 0,
+        
         end: estimatedDuration
       }];
 
